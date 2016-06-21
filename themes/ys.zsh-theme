@@ -44,6 +44,7 @@ ys_hg_prompt_info() {
 	fi
 }
 
+<<<<<<< HEAD
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $ 
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
@@ -58,6 +59,19 @@ ${git_info} \
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
+=======
+local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
+
+# Prompt format:
+#
+# PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [TIME] C:LAST_EXIT_CODE
+# $ COMMAND
+#
+# For example:
+#
+# % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0
+# $
+>>>>>>> 7fabc8bca41d4ff7090325116a85513dac852236
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
@@ -66,7 +80,13 @@ PROMPT="
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
+<<<<<<< HEAD
 ${git_info} \
 %{$fg[white]%}[%*]
+=======
+${git_info}\
+ \
+%{$fg[white]%}[%*] $exit_code
+>>>>>>> 7fabc8bca41d4ff7090325116a85513dac852236
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 fi
